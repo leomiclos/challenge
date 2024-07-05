@@ -1,0 +1,7 @@
+
+:host {
+  display: block;
+  background-color: #f5f5f5; /* Cor de fundo branco acinzentado */
+  min-height: 98vh; /* Garante que o fundo cubra toda a altura da tela */
+  margin: 0; /* Remove qualquer margem padrão */
+}

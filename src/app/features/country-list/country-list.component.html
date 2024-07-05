@@ -1,0 +1,13 @@
+<div class="countries-container">
+  <div class="group" *ngFor="let country of filteredCountries">
+    <div class="flag">
+      <img [src]="country.flags.png" alt="{{ country.name.common }} flag">
+    </div>
+    <div class="info">
+      <h2>{{ country.name.common }}</h2>
+      <p>Population: {{ country.population | number }}</p>
+      <p>Capital: {{ country.capital }}</p>
+      <p>Region: {{ country.region }}</p>
+    </div>
+  </div>
+</div>

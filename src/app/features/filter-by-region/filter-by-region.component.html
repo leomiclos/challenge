@@ -1,0 +1,14 @@
+<div class="card">
+  <form>
+    <p-dropdown
+      [options]="region"
+      [(ngModel)]="selectedRegion"
+      [ngModelOptions]="{standalone: true}"
+      optionLabel="name"
+      placeholder="Filtre por Região"
+      [showClear]="true"
+      [checkmark]="true"
+      (onChange)="onRegionChange($event)">
+    </p-dropdown>
+  </form>
+</div>
