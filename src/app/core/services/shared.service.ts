@@ -5,19 +5,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  private selectedRegionSubject = new BehaviorSubject<string | undefined>(undefined);
+  private selectedRegionSubject = new BehaviorSubject<string>('');
   selectedRegion$ = this.selectedRegionSubject.asObservable();
 
-  private searchedNameSubject = new BehaviorSubject<string | undefined>(undefined);
+  private searchedNameSubject = new BehaviorSubject<string>('');
   searchedName$ = this.searchedNameSubject.asObservable();
 
   constructor() {}
 
-  setSelectedRegion(region: string | undefined) {
+  setSelectedRegion(region: string) {
     this.selectedRegionSubject.next(region);
   }
 
-  setSearchedName(name: string | undefined) {
+
+
+  updateSearchedName(name: string) {
+    console.log('SharedService: updateSearchedName called with name:', name);
     this.searchedNameSubject.next(name);
   }
 

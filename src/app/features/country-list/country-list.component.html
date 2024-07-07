@@ -1,3 +1,14 @@
+<div class="filters">
+
+  <div class="p-inputgroup">
+    <span class="p-inputgroup-addon">
+      <i class="pi pi-search"></i>
+    </span>
+    <input class="input" type="text" pInputText placeholder="Busque por nome" [(ngModel)]="searchTerm" (input)="filterCountriesByName(searchTerm)" />
+  </div>
+
+  <app-filter-by-region></app-filter-by-region>
+</div>
 <div class="countries-container">
   <div class="group" *ngFor="let country of filteredCountries">
     <div class="flag">

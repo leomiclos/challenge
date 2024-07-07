@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { CountryService } from '../../core/services/country.service';
 import { SharedService } from '../../core/services/shared.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { FilterByRegionComponent } from '../filter-by-region/filter-by-region.component';
+import { InputGroupModule } from 'primeng/inputgroup';
 
 interface Country {
   name: { common: string };
@@ -16,15 +19,17 @@ interface Country {
   selector: 'app-country-list',
   templateUrl: './country-list.component.html',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, FilterByRegionComponent, InputGroupModule],
   styleUrls: ['./country-list.component.css'],
+  providers: [ CountryService, SharedService]
 })
-export class CountryListComponent implements OnInit {
+export class CountryListComponent implements OnInit, OnDestroy {
   countries: Country[] = [];
   filteredCountries: Country[] = [];
+  searchTerm: string = '';
 
   selectedRegionSubscription: Subscription | undefined;
-  countryByNameSubscription: Subscription | undefined
+  countryByNameSubscription: Subscription | undefined;
 
   constructor(
     private countryService: CountryService,
@@ -37,11 +42,20 @@ export class CountryListComponent implements OnInit {
     this.subscribeToCountryNameChanges();
   }
 
+  ngOnDestroy() {
+    if (this.selectedRegionSubscription) {
+      this.selectedRegionSubscription.unsubscribe();
+    }
+    if (this.countryByNameSubscription) {
+      this.countryByNameSubscription.unsubscribe();
+    }
+  }
+
   getCountriesInfo() {
     this.countryService.getCountries().subscribe((data: any) => {
       this.countries = data;
       this.countries.sort((a: Country, b: Country) => a.name.common.localeCompare(b.name.common));
-      this.filterCountriesByRegion(undefined); // Mostra todos os países inicialmente
+      this.filterCountriesByRegion(undefined); 
     });
   }
 
@@ -52,7 +66,7 @@ export class CountryListComponent implements OnInit {
   }
 
   subscribeToCountryNameChanges() {
-    this.selectedRegionSubscription = this.sharedService.searchedName$.subscribe((name) => {
+    this.countryByNameSubscription = this.sharedService.searchedName$.subscribe((name) => {
       this.filterCountriesByName(name);
     });
   }
@@ -61,20 +75,17 @@ export class CountryListComponent implements OnInit {
     if (region) {
       this.filteredCountries = this.countries.filter((country) => country.region === region);
     } else {
-      this.filteredCountries = [...this.countries]; // Mostra todos se a região não estiver definida
+      this.filteredCountries = [...this.countries];
     }
   }
 
   filterCountriesByName(name: string | undefined) {
-    console.log(name);
-
     if (name) {
-      this.countryService.getCountriesByName(name).subscribe((data: any[]) => {
-        this.filteredCountries = data;
-        console.log('Países filtrados por nome:', this.filteredCountries);
-      });
+      this.filteredCountries = this.countries.filter((country) =>
+        country.name.common.toLowerCase().includes(name.toLowerCase())
+      );
     } else {
-      this.filteredCountries = [...this.countries]; // Mostra todos se o nome não estiver definido
+      this.filteredCountries = [...this.countries];
     }
   }
 }
