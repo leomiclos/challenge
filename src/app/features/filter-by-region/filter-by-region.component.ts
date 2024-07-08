@@ -32,8 +32,9 @@ export class FilterByRegionComponent implements OnInit {
   }
 
   onRegionChange(event: any) {
-    console.log(event.value.name);
-
     this.sharedService.setSelectedRegion(event.value.name);
   }
+
+  
+
 }

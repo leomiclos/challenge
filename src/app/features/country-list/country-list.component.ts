@@ -6,14 +6,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FilterByRegionComponent } from '../filter-by-region/filter-by-region.component';
 import { InputGroupModule } from 'primeng/inputgroup';
+import { Router } from '@angular/router';
+import { Country } from '../../models/country.model';
 
-interface Country {
-  name: { common: string };
-  capital: string[];
-  population: number;
-  flags: { svg: string, png: string };
-  region: string;
-}
+
 
 @Component({
   selector: 'app-country-list',
@@ -24,6 +20,8 @@ interface Country {
   providers: [ CountryService, SharedService]
 })
 export class CountryListComponent implements OnInit, OnDestroy {
+
+
   countries: Country[] = [];
   filteredCountries: Country[] = [];
   searchTerm: string = '';
@@ -33,7 +31,9 @@ export class CountryListComponent implements OnInit, OnDestroy {
 
   constructor(
     private countryService: CountryService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private router: Router
+
   ) {}
 
   ngOnInit() {
@@ -87,5 +87,9 @@ export class CountryListComponent implements OnInit, OnDestroy {
     } else {
       this.filteredCountries = [...this.countries];
     }
+  }
+
+  viewCountryDetails(countryName: string) {
+    this.router.navigate(['/details', countryName]); 
   }
 }

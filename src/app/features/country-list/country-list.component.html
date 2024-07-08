@@ -11,7 +11,7 @@
 </div>
 <div class="countries-container">
   <div class="group" *ngFor="let country of filteredCountries">
-    <div class="flag">
+    <div class="flag"  (click)="viewCountryDetails(country.name.common)">
       <img [src]="country.flags.png" alt="{{ country.name.common }} flag">
     </div>
     <div class="info">

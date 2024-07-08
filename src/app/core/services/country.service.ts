@@ -39,9 +39,9 @@ export class CountryService {
       })
     );
   }
-
+// `${this.api}/name/${name}`
   getCountriesByName(name: string): Observable<string[]> {
-    return this.http.get<any[]>(`${this.api}/name/${name}`).pipe(
+    return this.http.get<any[]>('https://restcountries.com/v3.1/name/%C3%85land%20Islands').pipe(
       map(countries => {
         const name = countries.map(country => country.name);
         return Array.from(new Set(name)).sort();

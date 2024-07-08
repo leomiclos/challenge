@@ -1,1 +1,10 @@
-<p>details works!</p>
+<div *ngIf="country">
+    <div class="country-details">
+        <h1>{{ name }}</h1>
+        <img [src]="country.flags.png" alt="{{ name }} flag">
+        <p>Population: {{ country.population | number }}</p>
+        <p>Capital: {{ country.capital.join(', ') }}</p>
+        <p>Region: {{ country.region }}</p>
+        <!-- Adicione mais detalhes conforme necessário -->
+    </div>
+</div>
