@@ -1,3 +1,61 @@
+Aqui está uma descrição para um projeto no GitHub que utiliza a API REST Countries:
+
+---
+
+# Country Info App
+
+A Country Info App é uma aplicação web desenvolvida em Angular que permite aos usuários pesquisar e visualizar informações detalhadas sobre países ao redor do mundo. A aplicação consome a API REST Countries para fornecer dados atualizados sobre os países, incluindo nome, capital, população, região, bandeiras, entre outros.
+
+## Funcionalidades
+
+- **Pesquisa por Nome:** Permite aos usuários buscar países pelo nome e exibir informações detalhadas sobre eles.
+- **Filtragem por Região:** Os usuários podem filtrar os países com base na região.
+- **Detalhes do País:** Exibe informações detalhadas de cada país, incluindo nome oficial, capital, população, região, sub-região, bandeiras e mais.
+- **Modo Escuro:** Alterna entre modo claro e modo escuro para uma melhor experiência do usuário.
+
+## Tecnologias Utilizadas
+
+- **Angular:** Framework utilizado para o desenvolvimento da aplicação front-end.
+- **REST Countries API:** API utilizada para obter informações sobre os países.
+- **PrimeNG:** Biblioteca de componentes UI para Angular.
+- **RxJS:** Biblioteca para programação reativa utilizando observables.
+
+## Instalação
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/country-info-app.git
+   ```
+2. Navegue até o diretório do projeto:
+   ```sh
+   cd country-info-app
+   ```
+3. Instale as dependências:
+   ```sh
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```sh
+   ng serve
+   ```
+5. Abra seu navegador e acesse:
+   ```sh
+   http://localhost:4200
+   ```
+
+## Como Usar
+
+1. **Pesquisa por Nome:**
+   - Digite o nome de um país no campo de busca e pressione Enter.
+   - A aplicação exibirá uma lista de países correspondentes ao nome buscado.
+
+2. **Filtragem por Região:**
+   - Selecione uma região no dropdown para filtrar os países.
+   - A lista de países será atualizada de acordo com a região selecionada.
+
+3. **Visualização dos Detalhes do País:**
+   - Clique em um país na lista para ver detalhes adicionais sobre ele.
+
 # CountriesApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
