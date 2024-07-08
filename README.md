@@ -1,7 +1,3 @@
-Aqui está uma descrição para um projeto no GitHub que utiliza a API REST Countries:
-
----
-
 # Country Info App
 
 A Country Info App é uma aplicação web desenvolvida em Angular que permite aos usuários pesquisar e visualizar informações detalhadas sobre países ao redor do mundo. A aplicação consome a API REST Countries para fornecer dados atualizados sobre os países, incluindo nome, capital, população, região, bandeiras, entre outros.
