@@ -1,7 +1,8 @@
 <div class="group container">
   <div>
-
-    <button class="button" (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon> Voltar</button>
+    <button class="button" (click)="back()">
+      <ion-icon name="arrow-back-outline"></ion-icon> Voltar
+    </button>
   </div>
   <div class="container">
     <div *ngIf="country" class="country-details">
@@ -28,9 +29,7 @@
                 <strong>Top Level Domain:</strong> {{ country.tld.join(", ") }}
               </p>
               <p>
-                <strong>Currency:</strong> {{ currencyName }} ({{
-                currencySymbol
-                }})
+                <strong>Currency:</strong> {{ currencyName }} ({{ currencySymbol }})
               </p>
               <p><strong>Languages:</strong> {{ languages }}</p>
             </div>

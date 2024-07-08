@@ -78,7 +78,7 @@
   margin-right: 5px; /* Espaçamento à direita do ícone */
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1200px) {
 
   .all{
     width: 100%;

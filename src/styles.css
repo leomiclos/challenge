@@ -1,2 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+
+
+/* - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
+
+:root {
+  --primary: #1976d2;
+  --body: #fff;
+  --text-menu: #fff;
+  --text-body: #4b4b4b;
+}
+
+:root .dark-theme {
+  --primary: #0d47a1;
+  --body: #4b4b4b;
+  --text-menu: #fff;
+  --text-body: #fff;
+}
+
+body {
+  background-color: var(--body);
+}

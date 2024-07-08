@@ -40,28 +40,29 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 400px; /* Largura padrão */
-  margin-left: 20px; /* Espaço à esquerda */
+  width: 400px;
+  margin-left: 20px;
 }
 
 .p-inputtext {
-  padding-left: 30px; /* Espaço para o ícone */
-  border: 1px solid #ffffff; /* Estilo padrão da borda (opcional, ajuste conforme necessário) */
-  border-radius: 4px; /* Borda arredondada (opcional, ajuste conforme necessário) */
+  padding-left: 30px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  margin-left: 20px;
 }
 
 .p-inputgroup-addon {
   position: absolute;
-  top: 50%; /* Centraliza verticalmente */
-  transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
-  cursor: pointer; /* Mostra o cursor ao passar por cima do ícone */
-  pointer-events: none; /* Ignora eventos do mouse para o ícone */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: none;
   background-color: #ffffff;
   border: none;
   height: 100%;
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1300px) {
   .filters {
     display: flex;
     flex-direction: column;
@@ -73,11 +74,12 @@
   }
 
   .p-inputgroup {
-    width: 100%; /* Ajuste para ocupar toda a largura disponível */
-    margin-left: 0; /* Remove o espaço à esquerda */
+    width: 100%;
+    margin-left: 0;
   }
 
   .p-inputtext{
     margin-left: 20px;
   }
 }
+

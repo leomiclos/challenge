@@ -39,6 +39,8 @@ export class DetailsComponent implements OnInit {
         (data: Country[]) => {
           if (data && data.length > 0) {
             this.country = data[0];
+            console.log(this.country);
+
 
             // Verificações adicionais para garantir que os dados existem
             if (this.country.name && this.country.name.nativeName) {
@@ -69,6 +71,7 @@ export class DetailsComponent implements OnInit {
       this.country = null;
     }
   }
+
 
 
   back() {

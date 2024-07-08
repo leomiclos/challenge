@@ -4,7 +4,7 @@
     <span class="p-inputgroup-addon">
       <i class="pi pi-search"></i>
     </span>
-    <input class="p-inputtext" type="text" placeholder="Busque por nome" [(ngModel)]="searchTerm" (input)="filterCountriesByName(searchTerm)" />
+    <input class="p-inputtext" type="text" placeholder="Search for a country..." [(ngModel)]="searchTerm" (input)="filterCountriesByName(searchTerm)" />
   </div>
 
 
@@ -13,7 +13,7 @@
 <div class="countries-container">
   <div class="group" *ngFor="let country of filteredCountries">
     <div class="flag"  (click)="viewCountryDetails(country.name.common)">
-      <img [src]="country.flags.png" alt="{{ country.name.common }} flag">
+      <img [src]="country.flags.svg" alt="{{ country.name.common }} flag">
     </div>
     <div class="info">
       <h2>{{ country.name.common }}</h2>
