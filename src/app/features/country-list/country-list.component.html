@@ -4,8 +4,9 @@
     <span class="p-inputgroup-addon">
       <i class="pi pi-search"></i>
     </span>
-    <input class="input" type="text" pInputText placeholder="Busque por nome" [(ngModel)]="searchTerm" (input)="filterCountriesByName(searchTerm)" />
+    <input class="p-inputtext" type="text" placeholder="Busque por nome" [(ngModel)]="searchTerm" (input)="filterCountriesByName(searchTerm)" />
   </div>
+
 
   <app-filter-by-region></app-filter-by-region>
 </div>

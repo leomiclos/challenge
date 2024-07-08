@@ -1,10 +1,48 @@
-<div *ngIf="country">
-    <div class="country-details">
-        <h1>{{ name }}</h1>
-        <img [src]="country.flags.png" alt="{{ name }} flag">
-        <p>Population: {{ country.population | number }}</p>
-        <p>Capital: {{ country.capital.join(', ') }}</p>
-        <p>Region: {{ country.region }}</p>
-        <!-- Adicione mais detalhes conforme necessário -->
+<div class="group container">
+  <div>
+
+    <button class="button" (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon> Voltar</button>
+  </div>
+  <div class="container">
+    <div *ngIf="country" class="country-details">
+      <div class="flag-section">
+        <img [src]="country.flags.svg" alt="{{ country.name.common }} flag" />
+      </div>
+      <div class="all">
+        <div class="info-section">
+          <div class="title">
+            <h1>{{ country.name.common }}</h1>
+          </div>
+
+          <div class="infos">
+            <div class="first-info">
+              <p>
+                <strong>Population:</strong> {{ country.population | number }}
+              </p>
+              <p><strong>Region:</strong> {{ country.region }}</p>
+              <p><strong>Sub Region:</strong> {{ country.subregion }}</p>
+              <p><strong>Capital:</strong> {{ country.capital.join(", ") }}</p>
+            </div>
+            <div class="second-info">
+              <p>
+                <strong>Top Level Domain:</strong> {{ country.tld.join(", ") }}
+              </p>
+              <p>
+                <strong>Currency:</strong> {{ currencyName }} ({{
+                currencySymbol
+                }})
+              </p>
+              <p><strong>Languages:</strong> {{ languages }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-countries">
+          <p><strong>Border Countries:</strong></p>
+          <div class="country-info">
+            <span *ngFor="let country of borders">{{ country }}</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

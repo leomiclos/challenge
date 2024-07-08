@@ -5,7 +5,7 @@
   padding: 20px;
 }
 
-.input{
+.input {
   border: 1px solid gray;
 }
 
@@ -13,11 +13,10 @@
   background-color: white;
   border: 1px solid rgb(209, 209, 209);
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
   overflow: hidden;
   width: 300px;
-
 }
 
 .flag img {
@@ -27,17 +26,58 @@
   margin-bottom: 15px;
 }
 
-.info h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.info{
+.info {
   margin: 15px;
 }
 
-.filters{
+.filters {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+}
+
+.p-inputgroup {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 400px; /* Largura padrão */
+  margin-left: 20px; /* Espaço à esquerda */
+}
+
+.p-inputtext {
+  padding-left: 30px; /* Espaço para o ícone */
+  border: 1px solid #ffffff; /* Estilo padrão da borda (opcional, ajuste conforme necessário) */
+  border-radius: 4px; /* Borda arredondada (opcional, ajuste conforme necessário) */
+}
+
+.p-inputgroup-addon {
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
+  cursor: pointer; /* Mostra o cursor ao passar por cima do ícone */
+  pointer-events: none; /* Ignora eventos do mouse para o ícone */
+  background-color: #ffffff;
+  border: none;
+  height: 100%;
+}
+
+@media (max-width: 1360px) {
+  .filters {
+    display: flex;
+    flex-direction: column;
+  }
+
+  app-filter-by-region {
+    width: 190px;
+    margin-top: 10px;
+  }
+
+  .p-inputgroup {
+    width: 100%; /* Ajuste para ocupar toda a largura disponível */
+    margin-left: 0; /* Remove o espaço à esquerda */
+  }
+
+  .p-inputtext{
+    margin-left: 20px;
+  }
 }

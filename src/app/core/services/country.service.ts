@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { map, Observable } from 'rxjs';
+import { Country } from '../../models/country.model';
 
 @Injectable({
   providedIn: 'root'
@@ -40,12 +41,9 @@ export class CountryService {
     );
   }
 // `${this.api}/name/${name}`
-  getCountriesByName(name: string): Observable<string[]> {
-    return this.http.get<any[]>('https://restcountries.com/v3.1/name/%C3%85land%20Islands').pipe(
-      map(countries => {
-        const name = countries.map(country => country.name);
-        return Array.from(new Set(name)).sort();
-      })
-    );
-  }
+getCountriesByName(name: string): Observable<Country[]> {
+  const fields = 'name,flags,capital,languages,borders,currencies,region,population,subregion,tld';
+  const url = `${this.api}/name/${name}?fields=${fields}`;
+  return this.http.get<Country[]>(url);
+}
 }
